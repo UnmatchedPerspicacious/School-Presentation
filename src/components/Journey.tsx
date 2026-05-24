@@ -34,10 +34,10 @@ const journeySteps = [
 ]
 
 const growthAreas = [
-  { area: 'ביטחון עצמי ונוכחות', before: 40, after: 90 },
-  { area: 'ניהול אסטרטגי ויזמות', before: 30, after: 95 },
-  { area: 'יכולת למידה עצמאית', before: 60, after: 100 },
-  { area: 'חוסן מנטלי (Grit)', before: 50, after: 85 },
+  { area: 'ביטחון עצמי ונוכחות', before: 45, after: 90 },
+  { area: 'ניהול אסטרטגי ויזמות', before: 45, after: 95 },
+  { area: 'יכולת למידה עצמאית', before: 50, after: 95 },
+  { area: 'חוסן מנטלי (Grit)', before: 50, after: 90 },
 ]
 
 export default function Journey() {
