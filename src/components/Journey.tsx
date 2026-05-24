@@ -1,3 +1,5 @@
+'use client'
+
 import { ArrowUp, Sparkles, TrendingUp, Award, Rocket } from 'lucide-react'
 
 const journeySteps = [
@@ -60,42 +62,45 @@ export default function Journey() {
           <div className="absolute right-8 md:right-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-1/2" />
 
           <div className="space-y-12">
-            {journeySteps.map((step, index) => (
-              <div
-                key={index}
-                className={`relative flex items-start gap-8 ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                {/* Dot */}
-                <div className="absolute right-8 md:right-1/2 w-4 h-4 bg-primary rounded-full md:-translate-x-1/2 translate-x-1/2 z-10 border-4 border-background" />
+            {journeySteps.map((step, index) => {
+              const Icon = step.icon
+              return (
+                <div
+                  key={index}
+                  className={`relative flex items-start gap-8 ${
+                    index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  }`}
+                >
+                  {/* Dot */}
+                  <div className="absolute right-8 md:right-1/2 w-4 h-4 bg-primary rounded-full md:-translate-x-1/2 translate-x-1/2 z-10 border-4 border-background" />
 
-                {/* Content Card */}
-                <div className={`mr-16 md:mr-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
-                  <div
-                    className={`p-6 rounded-xl border transition-all duration-300 hover:border-primary/40 ${
-                      step.highlight
-                        ? 'bg-primary/5 border-primary/30 shadow-lg shadow-primary/5'
-                        : 'bg-card border-border'
-                    }`}
-                  >
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                        step.highlight ? 'bg-primary/20' : 'bg-secondary/50'
-                      }`}>
-                        <step.icon className={`w-6 h-6 ${step.highlight ? 'text-primary' : 'text-muted-foreground'}`} />
+                  {/* Content Card */}
+                  <div className={`mr-16 md:mr-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
+                    <div
+                      className={`p-6 rounded-xl border transition-all duration-300 hover:border-primary/40 ${
+                        step.highlight
+                          ? 'bg-primary/5 border-primary/30 shadow-lg shadow-primary/5'
+                          : 'bg-card border-border'
+                      }`}
+                    >
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+                          step.highlight ? 'bg-primary/20' : 'bg-secondary/50'
+                        }`}>
+                          <Icon className={`w-6 h-6 ${step.highlight ? 'text-primary' : 'text-muted-foreground'}`} />
+                        </div>
+                        <h3 className="font-bold text-xl">{step.title}</h3>
                       </div>
-                      <h3 className="font-bold text-xl">{step.title}</h3>
+                      <p className="text-xs font-bold text-primary/70 uppercase tracking-wider mb-2">{step.period}</p>
+                      <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                     </div>
-                    <p className="text-xs font-bold text-primary/70 uppercase tracking-wider mb-2">{step.period}</p>
-                    <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                   </div>
-                </div>
 
-                {/* Spacer */}
-                <div className="hidden md:block md:w-1/2" />
-              </div>
-            ))}
+                  {/* Spacer */}
+                  <div className="hidden md:block md:w-1/2" />
+                </div>
+              )
+            })}
           </div>
         </div>
 
@@ -107,7 +112,6 @@ export default function Journey() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {growthAreas.map((item, index) => {
-              // חישוב צמיחה יחסית מדויק: ((אחרי - לפני) / לפני) * 100
               const relativeGrowth = Math.round(((item.after - item.before) / item.before) * 100);
               
               return (
@@ -121,7 +125,6 @@ export default function Journey() {
                   </div>
                   
                   <div className="space-y-4">
-                    {/* Progress Before */}
                     <div className="space-y-1">
                       <div className="flex justify-between text-xs text-muted-foreground mb-1 font-medium">
                         <span>נקודת פתיחה</span>
@@ -135,7 +138,6 @@ export default function Journey() {
                       </div>
                     </div>
                     
-                    {/* Progress After */}
                     <div className="space-y-1">
                       <div className="flex justify-between text-xs text-primary mb-1 font-bold">
                         <span>מצב נוכחי</span>
@@ -143,7 +145,7 @@ export default function Journey() {
                       </div>
                       <div className="h-2.5 bg-secondary rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-primary rounded-full shadow-[0_0_10px_rgba(var(--primary),0.5)]"
+                          className="h-full bg-primary rounded-full"
                           style={{ width: `${item.after}%` }}
                         />
                       </div>
