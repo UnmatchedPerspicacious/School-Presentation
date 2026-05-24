@@ -1,0 +1,40 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Next.js Build Output
+/.next/
+/out/
+
+# Production Build Cache (if applicable)
+.turbo/
+
+# Environment Variables & Secrets
+# (Never commit your actual local keys, token, or secrets!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel Deployment Configuration
+.vercel
+
+# Testing & Coverage Tools
+/coverage
+/.nyc_output
+
+# IDE / Editor Files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# System Files
+.DS_Store
+*.pem
+Thumbs.db
