@@ -36,13 +36,13 @@ export default function Hero() {
         <div className="flex flex-wrap justify-center gap-4">
           <button
             onClick={() => scrollToSection('friendships')}
-            className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/10"
+            className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/10 cursor-pointer"
           >
             בואו נתחיל
           </button>
           <button
             onClick={() => scrollToSection('journey')}
-            className="px-8 py-3 border border-border rounded-lg font-medium hover:bg-secondary transition-colors"
+            className="px-8 py-3 border border-border rounded-lg font-medium hover:bg-secondary transition-colors cursor-pointer"
           >
             לתהליך המלא
           </button>
@@ -51,7 +51,7 @@ export default function Hero() {
 
       <button
         onClick={() => scrollToSection('friendships')}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-muted-foreground hover:text-primary transition-colors"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-muted-foreground hover:text-primary transition-colors cursor-pointer"
         aria-label="Scroll down"
       >
         <ChevronDown size={32} />

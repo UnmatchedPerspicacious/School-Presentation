@@ -1,9 +1,9 @@
-import { BookOpen, Brain, Lightbulb, Target } from 'lucide-react'
+import { BookOpen, Brain, Lightbulb, Target, BarChart3, Shield, Sparkles } from 'lucide-react'
 
 const learningAreas = [
   {
     icon: BookOpen,
-    title: 'פיתוח מקצועי וטכנולוגי', // Renamed to a sleek professional title
+    title: 'פיתוח מקצועי וטכנולוגי',
     items: [
       'פיננסים ומתמטיקה פיננסית',
       'מדעי המחשב ותכנות (Programming)',
@@ -45,6 +45,39 @@ const learningAreas = [
       'מעבר מפאסיביות של תלמיד ליוזמה של מפתח עצמאי' 
     ],
   },
+  {
+    icon: BarChart3,
+    title: 'חשיבה עסקית ואסטרטגיה',
+    items: [
+      'הבנת מחזור החיים של מוצר (Product Lifecycle)',
+      'ניתוח שוק, זיהוי הזדמנויות והגדרת קהלי יעד',
+      'תעדוף משימות קריטיות (Prioritization) וניהול משאבים',
+      'הסתכלות על התמונה הגדולה – טכנולוגיה ומשתמשים',
+      'קבלת החלטות תחת תנאי אי-ודאות וסיכון מחושב'
+    ],
+  },
+  {
+    icon: Shield,
+    title: 'חוסן מנטלי ומשמעת עצמית',
+    items: [
+      'פיתוח "אורך רוח" והתמדה גם ללא תוצאות מיידיות',
+      'מעבר ממוטיבציה חולפת לביצוע מבוסס משמעת יומיומית',
+      'יכולת התאוששות מהירה ממשברים ותקלות קריטיות',
+      'ניהול אנרגיה אישית ושמירה על פוקוס בסביבה דינמית',
+      'הבנה שההצלחה של מיזם תלויה בעקביות מאחורי הקלעים'
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: 'יצירתיות, תחביבים והרגלים',
+    items: [
+      'אימוץ הרגלים של אורח חיים בריא, כושר וספורט קבוע',
+      'שחמט (חשיבה טקטית, תכנון מהלכים קדימה וסבלנות)',
+      'חקר וניסוי של כלי בינה מלאכותית (AI) מתקדמים ליצירה',
+      'עיצוב ממשקים (UI/UX) לפרויקטים אישיים בשביל הכיף',
+      'פיתוח פרויקטים קטנים (Side Projects) - כי היי, למה לא?'
+    ],
+  }
 ]
 
 export default function Learning() {
@@ -58,46 +91,53 @@ export default function Learning() {
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             ארבע שנים של למידה
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            מסע של ארבע שנים שבו למדתי לקחת רעיון ולהפוך אותו למציאות, להתמודד עם אתגרים, ולגלות מה באמת מניע אותי קדימה.
+          <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed text-pretty">
+            ארבע שנים של מסע שבו למדתי שאין דבר שהוא בלתי אפשרי אם יש לך את המשמעת, הכלים והאנשים הנכונים לצידך. הפכתי מרעיון למעשה, מאתגר להזדמנות, ומנער שמחפש את הכיוון ליזם ומפתח בעל חזון ברור — מישהו שמבין בדיוק איך לקחת מטרות שאפתניות, להניע אותן קדימה ויודע איך להשאיר חותם בעולם האמיתי.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {learningAreas.map((area, index) => (
-            <div
-              key={index}
-              className="p-8 bg-card rounded-xl border border-border hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col justify-between"
-            >
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                  <area.icon className="w-7 h-7 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-4 text-foreground">{area.title}</h3>
-                  <ul className="space-y-3">
-                    {area.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm md:text-base leading-snug">
-                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+        {/* גריד רספונסיבי עם כרטיס שביעי ממורכז */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {learningAreas.map((area, index) => {
+            const isLastItem = index === learningAreas.length - 1;
+
+            return (
+              <div
+                key={index}
+                className={`p-8 bg-card rounded-xl border border-border hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col justify-between ${
+                  isLastItem ? 'lg:col-start-2' : ''
+                }`}
+              >
+                <div className="flex flex-col items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                    <area.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="w-full">
+                    <h3 className="text-xl font-bold mb-4 text-foreground leading-tight">{area.title}</h3>
+                    <ul className="space-y-3">
+                      {area.items.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2.5 text-muted-foreground text-sm md:text-base leading-snug">
+                          <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Tailored stats for a tech + finance senior journey */}
+        {/* חלק הסטטיסטיקות בתחתית */}
         <div className="mt-16 grid md:grid-cols-3 gap-8 text-center border-t border-border/60 pt-16">
           <div className="p-6">
             <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">4 השנים</div>
             <p className="text-muted-foreground font-medium">של קפיצת מדרגה משמעותית</p>
           </div>
           <div className="p-6">
-            <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">20+</div>
-            <p className="text-muted-foreground font-medium">דברים שלמדתי (מקצועי, לימודי, חברתי ועוד)</p>
+            <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">25+</div>
+            <p className="text-muted-foreground font-medium">דברים שלמדתי (מקצועי, לימודי, תחומי עניין ועוד)</p>
           </div>
           <div className="p-6">
             <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2">100%</div>
